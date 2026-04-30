@@ -1,0 +1,938 @@
+{
+  "faculty": [
+    {
+      "id": "id_rqqklu1fmny77i8j",
+      "name": "Dr. Arun Kumar",
+      "dept": "Computer Science",
+      "email": "arun@college.edu",
+      "maxPeriodsPerDay": 4,
+      "specialization": "Data Structures & Algorithms"
+    },
+    {
+      "id": "id_ebcez43rmny77i8j",
+      "name": "Prof. Meena Sharma",
+      "dept": "Computer Science",
+      "email": "meena@college.edu",
+      "maxPeriodsPerDay": 4,
+      "specialization": "Database Systems"
+    },
+    {
+      "id": "id_3gmgb5jsmny77i8j",
+      "name": "Dr. Vikram Nair",
+      "dept": "Mathematics",
+      "email": "vikram@college.edu",
+      "maxPeriodsPerDay": 5,
+      "specialization": "Discrete Mathematics"
+    },
+    {
+      "id": "id_64shlrtzmny77i8j",
+      "name": "Prof. Lakshmi Priya",
+      "dept": "Computer Science",
+      "email": "lakshmi@college.edu",
+      "maxPeriodsPerDay": 4,
+      "specialization": "Operating Systems & Networks"
+    },
+    {
+      "id": "id_3q6rz91vmny77i8j",
+      "name": "Dr. Rajesh Iyer",
+      "dept": "Computer Science",
+      "email": "rajesh@college.edu",
+      "maxPeriodsPerDay": 4,
+      "specialization": "Software Engineering"
+    },
+    {
+      "id": "id_vxvvs90qmny77i8j",
+      "name": "Prof. Anitha Menon",
+      "dept": "Electronics",
+      "email": "anitha@college.edu",
+      "maxPeriodsPerDay": 4,
+      "specialization": "Digital Electronics"
+    },
+    {
+      "id": "id_lwntopclmny77i8j",
+      "name": "Dr. Suresh Babu",
+      "dept": "Computer Science",
+      "email": "suresh@college.edu",
+      "maxPeriodsPerDay": 5,
+      "specialization": "Computer Networks"
+    },
+    {
+      "id": "id_3rij5umemny77i8j",
+      "name": "Prof. Priya Devi",
+      "dept": "Mathematics",
+      "email": "priya@college.edu",
+      "maxPeriodsPerDay": 4,
+      "specialization": "Probability & Statistics"
+    },
+    {
+      "id": "id_i5rndtq3mnylgk9g",
+      "name": "Dr. shree yoga ",
+      "dept": "Computer Science",
+      "email": "shree@gmail.com",
+      "maxPeriodsPerDay": "6",
+      "specialization": "System design"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "id_zi6sgnklmny77i8j",
+      "name": "Data Structures",
+      "code": "CS301",
+      "dept": "Computer Science",
+      "credits": 4,
+      "periodsPerWeek": 4,
+      "isLab": false
+    },
+    {
+      "id": "id_ar80y4uwmny77i8j",
+      "name": "Database Systems",
+      "code": "CS302",
+      "dept": "Computer Science",
+      "credits": 3,
+      "periodsPerWeek": 3,
+      "isLab": false
+    },
+    {
+      "id": "id_fainoi3emny77i8j",
+      "name": "Discrete Mathematics",
+      "code": "MA301",
+      "dept": "Mathematics",
+      "credits": 4,
+      "periodsPerWeek": 4,
+      "isLab": false
+    },
+    {
+      "id": "id_gfi733hmmny77i8j",
+      "name": "Operating Systems",
+      "code": "CS303",
+      "dept": "Computer Science",
+      "credits": 3,
+      "periodsPerWeek": 3,
+      "isLab": false
+    },
+    {
+      "id": "id_ikjzro29mny77i8j",
+      "name": "Software Engineering",
+      "code": "CS304",
+      "dept": "Computer Science",
+      "credits": 3,
+      "periodsPerWeek": 3,
+      "isLab": false
+    },
+    {
+      "id": "id_ogok6vldmny77i8j",
+      "name": "Computer Networks",
+      "code": "CS305",
+      "dept": "Computer Science",
+      "credits": 3,
+      "periodsPerWeek": 3,
+      "isLab": false
+    },
+    {
+      "id": "id_kx591j4nmny77i8j",
+      "name": "Probability & Stats",
+      "code": "MA302",
+      "dept": "Mathematics",
+      "credits": 3,
+      "periodsPerWeek": 3,
+      "isLab": false
+    },
+    {
+      "id": "id_n1yoauyymny77i8j",
+      "name": "OS Lab",
+      "code": "CS303L",
+      "dept": "Computer Science",
+      "credits": 2,
+      "periodsPerWeek": 2,
+      "isLab": true,
+      "labDuration": 3
+    },
+    {
+      "id": "id_opnwrlg0mny77i8j",
+      "name": "DBMS Lab",
+      "code": "CS302L",
+      "dept": "Computer Science",
+      "credits": 2,
+      "periodsPerWeek": 2,
+      "isLab": true
+    },
+    {
+      "id": "id_9yvs1pi4mny77i8j",
+      "name": "Digital Electronics",
+      "code": "EC301",
+      "dept": "Electronics",
+      "credits": 3,
+      "periodsPerWeek": 3,
+      "isLab": false
+    },
+    {
+      "id": "id_xc8qwnrumnyliffe",
+      "name": "mini project",
+      "code": "cs602",
+      "dept": "Computer Science",
+      "credits": 3,
+      "periodsPerWeek": 3,
+      "isLab": true,
+      "labDuration": 3
+    }
+  ],
+  "rooms": [
+    {
+      "id": "id_55wmi6vtmny77i8j",
+      "name": "Room 101",
+      "capacity": 65,
+      "floor": "Block A, Floor 1",
+      "isLab": false
+    },
+    {
+      "id": "id_0uc584uhmny77i8j",
+      "name": "Room 102",
+      "capacity": 65,
+      "floor": "Block A, Floor 1",
+      "isLab": false
+    },
+    {
+      "id": "id_pi9cyncbmny77i8j",
+      "name": "Room 201",
+      "capacity": 70,
+      "floor": "Block B, Floor 2",
+      "isLab": false
+    },
+    {
+      "id": "id_bz5i0a0lmny77i8j",
+      "name": "CS Lab 1",
+      "capacity": 35,
+      "floor": "Block C, Floor 1",
+      "isLab": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "id_cbs515cumny77i8j",
+      "name": "CSE - A (Sem 3)",
+      "dept": "Computer Science",
+      "semester": 3,
+      "strength": 60,
+      "curriculum": [
+        {
+          "subjectId": "id_zi6sgnklmny77i8j",
+          "facultyId": "id_rqqklu1fmny77i8j",
+          "periodsPerWeek": 4
+        },
+        {
+          "subjectId": "id_ar80y4uwmny77i8j",
+          "facultyId": "id_ebcez43rmny77i8j",
+          "periodsPerWeek": 3
+        },
+        {
+          "subjectId": "id_fainoi3emny77i8j",
+          "facultyId": "id_3gmgb5jsmny77i8j",
+          "periodsPerWeek": 4
+        },
+        {
+          "subjectId": "id_gfi733hmmny77i8j",
+          "facultyId": "id_64shlrtzmny77i8j",
+          "periodsPerWeek": 3
+        },
+        {
+          "subjectId": "id_n1yoauyymny77i8j",
+          "facultyId": "id_64shlrtzmny77i8j",
+          "periodsPerWeek": 2
+        },
+        {
+          "subjectId": "id_opnwrlg0mny77i8j",
+          "facultyId": "id_ebcez43rmny77i8j",
+          "periodsPerWeek": 2
+        }
+      ]
+    },
+    {
+      "id": "id_o501rxurmny77i8j",
+      "name": "CSE - B (Sem 3)",
+      "dept": "Computer Science",
+      "semester": 3,
+      "strength": 58,
+      "curriculum": [
+        {
+          "subjectId": "id_zi6sgnklmny77i8j",
+          "facultyId": "id_rqqklu1fmny77i8j",
+          "periodsPerWeek": 4
+        },
+        {
+          "subjectId": "id_ikjzro29mny77i8j",
+          "facultyId": "id_3q6rz91vmny77i8j",
+          "periodsPerWeek": 3
+        },
+        {
+          "subjectId": "id_ogok6vldmny77i8j",
+          "facultyId": "id_lwntopclmny77i8j",
+          "periodsPerWeek": 3
+        },
+        {
+          "subjectId": "id_kx591j4nmny77i8j",
+          "facultyId": "id_3rij5umemny77i8j",
+          "periodsPerWeek": 3
+        },
+        {
+          "subjectId": "id_n1yoauyymny77i8j",
+          "facultyId": "id_64shlrtzmny77i8j",
+          "periodsPerWeek": 2
+        },
+        {
+          "subjectId": "id_opnwrlg0mny77i8j",
+          "facultyId": "id_ebcez43rmny77i8j",
+          "periodsPerWeek": 2
+        }
+      ]
+    },
+    {
+      "id": "id_awiup9femny77i8j",
+      "name": "CSE - C (Sem 3)",
+      "dept": "Computer Science",
+      "semester": 3,
+      "strength": 55,
+      "curriculum": [
+        {
+          "subjectId": "id_ar80y4uwmny77i8j",
+          "facultyId": "id_ebcez43rmny77i8j",
+          "periodsPerWeek": 3
+        },
+        {
+          "subjectId": "id_gfi733hmmny77i8j",
+          "facultyId": "id_64shlrtzmny77i8j",
+          "periodsPerWeek": 3
+        },
+        {
+          "subjectId": "id_ikjzro29mny77i8j",
+          "facultyId": "id_3q6rz91vmny77i8j",
+          "periodsPerWeek": 3
+        },
+        {
+          "subjectId": "id_ogok6vldmny77i8j",
+          "facultyId": "id_lwntopclmny77i8j",
+          "periodsPerWeek": 3
+        },
+        {
+          "subjectId": "id_9yvs1pi4mny77i8j",
+          "facultyId": "id_vxvvs90qmny77i8j",
+          "periodsPerWeek": 3
+        },
+        {
+          "subjectId": "id_n1yoauyymny77i8j",
+          "facultyId": "id_64shlrtzmny77i8j",
+          "periodsPerWeek": 2
+        }
+      ]
+    }
+  ],
+  "config": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "periodsPerDay": 8,
+    "breakAfterPeriod": 4,
+    "institution": "ABC Engineering College",
+    "periodTimes": [
+      "09:00 - 10:00",
+      "10:00 - 11:00",
+      "11:00 - 12:00",
+      "12:00 - 13:00",
+      "14:00 - 15:00",
+      "15:00 - 16:00",
+      "16:00-16:45",
+      "16:45-17:30",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "timetable": {
+    "sessions": [
+      {
+        "id": "s0",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_zi6sgnklmny77i8j",
+        "facultyId": "id_rqqklu1fmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 1,
+        "period": 6,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s1",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_zi6sgnklmny77i8j",
+        "facultyId": "id_rqqklu1fmny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 0,
+        "period": 3,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s2",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_zi6sgnklmny77i8j",
+        "facultyId": "id_rqqklu1fmny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 3,
+        "period": 7,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s3",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_zi6sgnklmny77i8j",
+        "facultyId": "id_rqqklu1fmny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 1,
+        "period": 0,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s4",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_ar80y4uwmny77i8j",
+        "facultyId": "id_ebcez43rmny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 3,
+        "period": 5,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s5",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_ar80y4uwmny77i8j",
+        "facultyId": "id_ebcez43rmny77i8j",
+        "roomId": "id_pi9cyncbmny77i8j",
+        "day": 2,
+        "period": 0,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s6",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_ar80y4uwmny77i8j",
+        "facultyId": "id_ebcez43rmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 3,
+        "period": 0,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s7",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_fainoi3emny77i8j",
+        "facultyId": "id_3gmgb5jsmny77i8j",
+        "roomId": "id_pi9cyncbmny77i8j",
+        "day": 4,
+        "period": 0,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s8",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_fainoi3emny77i8j",
+        "facultyId": "id_3gmgb5jsmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 0,
+        "period": 6,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s9",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_fainoi3emny77i8j",
+        "facultyId": "id_3gmgb5jsmny77i8j",
+        "roomId": "id_pi9cyncbmny77i8j",
+        "day": 1,
+        "period": 7,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s10",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_fainoi3emny77i8j",
+        "facultyId": "id_3gmgb5jsmny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 4,
+        "period": 7,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s11",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_gfi733hmmny77i8j",
+        "facultyId": "id_64shlrtzmny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 2,
+        "period": 2,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s12",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_gfi733hmmny77i8j",
+        "facultyId": "id_64shlrtzmny77i8j",
+        "roomId": "id_pi9cyncbmny77i8j",
+        "day": 3,
+        "period": 4,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s13",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_gfi733hmmny77i8j",
+        "facultyId": "id_64shlrtzmny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 3,
+        "period": 3,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s14",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_n1yoauyymny77i8j",
+        "facultyId": "id_64shlrtzmny77i8j",
+        "roomId": "id_bz5i0a0lmny77i8j",
+        "day": 2,
+        "period": 5,
+        "isLab": true,
+        "duration": 3
+      },
+      {
+        "id": "s15",
+        "groupId": "id_cbs515cumny77i8j",
+        "subjectId": "id_opnwrlg0mny77i8j",
+        "facultyId": "id_ebcez43rmny77i8j",
+        "roomId": "id_bz5i0a0lmny77i8j",
+        "day": 0,
+        "period": 4,
+        "isLab": true,
+        "duration": 2
+      },
+      {
+        "id": "s16",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_zi6sgnklmny77i8j",
+        "facultyId": "id_rqqklu1fmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 1,
+        "period": 3,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s17",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_zi6sgnklmny77i8j",
+        "facultyId": "id_rqqklu1fmny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 3,
+        "period": 2,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s18",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_zi6sgnklmny77i8j",
+        "facultyId": "id_rqqklu1fmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 4,
+        "period": 2,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s19",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_zi6sgnklmny77i8j",
+        "facultyId": "id_rqqklu1fmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 2,
+        "period": 6,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s20",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_ikjzro29mny77i8j",
+        "facultyId": "id_3q6rz91vmny77i8j",
+        "roomId": "id_pi9cyncbmny77i8j",
+        "day": 0,
+        "period": 4,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s21",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_ikjzro29mny77i8j",
+        "facultyId": "id_3q6rz91vmny77i8j",
+        "roomId": "id_pi9cyncbmny77i8j",
+        "day": 1,
+        "period": 2,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s22",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_ikjzro29mny77i8j",
+        "facultyId": "id_3q6rz91vmny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 1,
+        "period": 6,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s23",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_ogok6vldmny77i8j",
+        "facultyId": "id_lwntopclmny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 3,
+        "period": 6,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s24",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_ogok6vldmny77i8j",
+        "facultyId": "id_lwntopclmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 3,
+        "period": 4,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s25",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_ogok6vldmny77i8j",
+        "facultyId": "id_lwntopclmny77i8j",
+        "roomId": "id_pi9cyncbmny77i8j",
+        "day": 3,
+        "period": 5,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s26",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_kx591j4nmny77i8j",
+        "facultyId": "id_3rij5umemny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 3,
+        "period": 1,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s27",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_kx591j4nmny77i8j",
+        "facultyId": "id_3rij5umemny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 1,
+        "period": 1,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s28",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_kx591j4nmny77i8j",
+        "facultyId": "id_3rij5umemny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 4,
+        "period": 5,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s29",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_n1yoauyymny77i8j",
+        "facultyId": "id_64shlrtzmny77i8j",
+        "roomId": "id_bz5i0a0lmny77i8j",
+        "day": 0,
+        "period": 0,
+        "isLab": true,
+        "duration": 3
+      },
+      {
+        "id": "s30",
+        "groupId": "id_o501rxurmny77i8j",
+        "subjectId": "id_opnwrlg0mny77i8j",
+        "facultyId": "id_ebcez43rmny77i8j",
+        "roomId": "id_bz5i0a0lmny77i8j",
+        "day": 2,
+        "period": 2,
+        "isLab": true,
+        "duration": 2
+      },
+      {
+        "id": "s31",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_ar80y4uwmny77i8j",
+        "facultyId": "id_ebcez43rmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 4,
+        "period": 4,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s32",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_ar80y4uwmny77i8j",
+        "facultyId": "id_ebcez43rmny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 3,
+        "period": 4,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s33",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_ar80y4uwmny77i8j",
+        "facultyId": "id_ebcez43rmny77i8j",
+        "roomId": "id_pi9cyncbmny77i8j",
+        "day": 0,
+        "period": 1,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s34",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_gfi733hmmny77i8j",
+        "facultyId": "id_64shlrtzmny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 0,
+        "period": 6,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s35",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_gfi733hmmny77i8j",
+        "facultyId": "id_64shlrtzmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 4,
+        "period": 0,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s36",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_gfi733hmmny77i8j",
+        "facultyId": "id_64shlrtzmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 3,
+        "period": 7,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s37",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_ikjzro29mny77i8j",
+        "facultyId": "id_3q6rz91vmny77i8j",
+        "roomId": "id_pi9cyncbmny77i8j",
+        "day": 0,
+        "period": 3,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s38",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_ikjzro29mny77i8j",
+        "facultyId": "id_3q6rz91vmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 1,
+        "period": 0,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s39",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_ikjzro29mny77i8j",
+        "facultyId": "id_3q6rz91vmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 2,
+        "period": 2,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s40",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_ogok6vldmny77i8j",
+        "facultyId": "id_lwntopclmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 4,
+        "period": 1,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s41",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_ogok6vldmny77i8j",
+        "facultyId": "id_lwntopclmny77i8j",
+        "roomId": "id_pi9cyncbmny77i8j",
+        "day": 4,
+        "period": 7,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s42",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_ogok6vldmny77i8j",
+        "facultyId": "id_lwntopclmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 1,
+        "period": 2,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s43",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_9yvs1pi4mny77i8j",
+        "facultyId": "id_vxvvs90qmny77i8j",
+        "roomId": "id_pi9cyncbmny77i8j",
+        "day": 2,
+        "period": 7,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s44",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_9yvs1pi4mny77i8j",
+        "facultyId": "id_vxvvs90qmny77i8j",
+        "roomId": "id_55wmi6vtmny77i8j",
+        "day": 0,
+        "period": 0,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s45",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_9yvs1pi4mny77i8j",
+        "facultyId": "id_vxvvs90qmny77i8j",
+        "roomId": "id_0uc584uhmny77i8j",
+        "day": 0,
+        "period": 2,
+        "isLab": false,
+        "duration": 1
+      },
+      {
+        "id": "s46",
+        "groupId": "id_awiup9femny77i8j",
+        "subjectId": "id_n1yoauyymny77i8j",
+        "facultyId": "id_64shlrtzmny77i8j",
+        "roomId": "id_bz5i0a0lmny77i8j",
+        "day": 1,
+        "period": 4,
+        "isLab": true,
+        "duration": 3
+      }
+    ],
+    "fitness": 1,
+    "violations": [],
+    "stats": {
+      "totalSessions": 47,
+      "fitness": 1
+    },
+    "generatedAt": "2026-04-14T12:57:22.055Z"
+  }
+}

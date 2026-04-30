@@ -1,0 +1,58 @@
+[
+  {
+    "id": "room_001",
+    "name": "Room 101",
+    "capacity": 65,
+    "floor": "Block A, Floor 1",
+    "isLab": false
+  },
+  {
+    "id": "room_002",
+    "name": "Room 102",
+    "capacity": 65,
+    "floor": "Block A, Floor 1",
+    "isLab": false
+  },
+  {
+    "id": "room_003",
+    "name": "Room 201",
+    "capacity": 70,
+    "floor": "Block B, Floor 2",
+    "isLab": false
+  },
+  {
+    "id": "room_004",
+    "name": "Room 202",
+    "capacity": 70,
+    "floor": "Block B, Floor 2",
+    "isLab": false
+  },
+  {
+    "id": "room_005",
+    "name": "CS Lab 1",
+    "capacity": 35,
+    "floor": "Block C, Floor 1",
+    "isLab": true
+  },
+  {
+    "id": "room_006",
+    "name": "CS Lab 2",
+    "capacity": 35,
+    "floor": "Block C, Floor 1",
+    "isLab": true
+  },
+  {
+    "id": "room_007",
+    "name": "Electronics Lab",
+    "capacity": 40,
+    "floor": "Block D, Floor 1",
+    "isLab": true
+  },
+  {
+    "id": "room_008",
+    "name": "Room 301",
+    "capacity": 60,
+    "floor": "Block B, Floor 3",
+    "isLab": false
+  }
+]

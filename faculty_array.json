@@ -1,0 +1,182 @@
+[
+  {
+    "id": "fac_001",
+    "name": "Dr. Arun Kumar",
+    "dept": "Computer Science",
+    "email": "arun@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Data Structures & Algorithms"
+  },
+  {
+    "id": "fac_002",
+    "name": "Prof. Meena Sharma",
+    "dept": "Computer Science",
+    "email": "meena@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Database Systems"
+  },
+  {
+    "id": "fac_003",
+    "name": "Dr. Vikram Nair",
+    "dept": "Mathematics",
+    "email": "vikram@college.edu",
+    "maxPeriodsPerDay": 5,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Discrete Mathematics"
+  },
+  {
+    "id": "fac_004",
+    "name": "Prof. Lakshmi Priya",
+    "dept": "Computer Science",
+    "email": "lakshmi@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Operating Systems & Networks"
+  },
+  {
+    "id": "fac_005",
+    "name": "Dr. Rajesh Iyer",
+    "dept": "Computer Science",
+    "email": "rajesh@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Software Engineering"
+  },
+  {
+    "id": "fac_006",
+    "name": "Prof. Anitha Menon",
+    "dept": "Electronics",
+    "email": "anitha@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Digital Electronics"
+  },
+  {
+    "id": "fac_007",
+    "name": "Dr. Suresh Babu",
+    "dept": "Computer Science",
+    "email": "suresh@college.edu",
+    "maxPeriodsPerDay": 5,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Computer Networks"
+  },
+  {
+    "id": "fac_008",
+    "name": "Prof. Priya Devi",
+    "dept": "Mathematics",
+    "email": "priya@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Probability & Statistics"
+  },
+  {
+    "id": "fac_009",
+    "name": "Dr. Sanjay Singh",
+    "dept": "Electronics",
+    "email": "sanjay@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Microprocessors"
+  },
+  {
+    "id": "fac_010",
+    "name": "Prof. Ravi Reddy",
+    "dept": "Mechanical",
+    "email": "ravi@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Thermodynamics"
+  },
+  {
+    "id": "fac_011",
+    "name": "Dr. Kavya Sharma",
+    "dept": "Computer Science",
+    "email": "kavya@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Web Technologies"
+  },
+  {
+    "id": "fac_012",
+    "name": "Prof. Mohan Kumar",
+    "dept": "Civil",
+    "email": "mohan@college.edu",
+    "maxPeriodsPerDay": 5,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Structural Design"
+  },
+  {
+    "id": "fac_013",
+    "name": "Dr. Ananya Roy",
+    "dept": "Electronics",
+    "email": "ananya@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "VLSI Design"
+  },
+  {
+    "id": "fac_014",
+    "name": "Prof. Deepak Patel",
+    "dept": "Computer Science",
+    "email": "deepak@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Cryptography"
+  },
+  {
+    "id": "fac_015",
+    "name": "Dr. Sunita Desai",
+    "dept": "Mathematics",
+    "email": "sunita@college.edu",
+    "maxPeriodsPerDay": 5,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Linear Algebra"
+  },
+  {
+    "id": "fac_016",
+    "name": "Prof. Nikhil Verma",
+    "dept": "Mechanical",
+    "email": "nikhil@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Fluid Mechanics"
+  },
+  {
+    "id": "fac_017",
+    "name": "Dr. Pooja Yadav",
+    "dept": "Electronics",
+    "email": "pooja@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Signal Processing"
+  },
+  {
+    "id": "fac_018",
+    "name": "Prof. Ashok Singh",
+    "dept": "Civil",
+    "email": "ashok@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Geotechnical Engineering"
+  },
+  {
+    "id": "fac_019",
+    "name": "Dr. Neha Gupta",
+    "dept": "Computer Science",
+    "email": "neha@college.edu",
+    "maxPeriodsPerDay": 5,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Machine Learning"
+  },
+  {
+    "id": "fac_020",
+    "name": "Prof. Vijay Nambiar",
+    "dept": "Mechanical",
+    "email": "vijay@college.edu",
+    "maxPeriodsPerDay": 4,
+    "maxPeriodsPerWeek": 12,
+    "specialization": "Manufacturing Processes"
+  }
+]

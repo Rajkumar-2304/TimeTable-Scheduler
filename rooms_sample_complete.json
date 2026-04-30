@@ -1,0 +1,86 @@
+[
+  {
+    "id": "room_001",
+    "name": "Lab A",
+    "type": "lab",
+    "capacity": 40,
+    "features": ["workstations", "projector", "wifi"]
+  },
+  {
+    "id": "room_002",
+    "name": "Lab B",
+    "type": "lab",
+    "capacity": 40,
+    "features": ["workstations", "projector", "wifi"]
+  },
+  {
+    "id": "room_003",
+    "name": "Lab C",
+    "type": "lab",
+    "capacity": 35,
+    "features": ["workstations", "projector", "wifi"]
+  },
+  {
+    "id": "room_004",
+    "name": "Lab D",
+    "type": "lab",
+    "capacity": 35,
+    "features": ["workstations", "projector", "wifi"]
+  },
+  {
+    "id": "room_005",
+    "name": "Class A",
+    "type": "classroom",
+    "capacity": 60,
+    "features": ["projector", "whiteboard", "wifi"]
+  },
+  {
+    "id": "room_006",
+    "name": "Class B",
+    "type": "classroom",
+    "capacity": 60,
+    "features": ["projector", "whiteboard", "wifi"]
+  },
+  {
+    "id": "room_007",
+    "name": "Class C",
+    "type": "classroom",
+    "capacity": 60,
+    "features": ["projector", "whiteboard", "wifi"]
+  },
+  {
+    "id": "room_008",
+    "name": "Class D",
+    "type": "classroom",
+    "capacity": 55,
+    "features": ["projector", "whiteboard", "wifi"]
+  },
+  {
+    "id": "room_009",
+    "name": "Class E",
+    "type": "classroom",
+    "capacity": 55,
+    "features": ["projector", "whiteboard", "wifi"]
+  },
+  {
+    "id": "room_010",
+    "name": "Class F",
+    "type": "classroom",
+    "capacity": 50,
+    "features": ["projector", "whiteboard", "wifi"]
+  },
+  {
+    "id": "room_011",
+    "name": "Auditorium",
+    "type": "auditorium",
+    "capacity": 200,
+    "features": ["projector", "sound system", "wifi"]
+  },
+  {
+    "id": "room_012",
+    "name": "Seminar Hall",
+    "type": "seminar",
+    "capacity": 100,
+    "features": ["projector", "whiteboard", "wifi"]
+  }
+]

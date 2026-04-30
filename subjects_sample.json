@@ -1,0 +1,82 @@
+[
+  {
+    "id": "subj_001",
+    "name": "Data Structures",
+    "code": "CS301",
+    "dept": "Computer Science",
+    "credits": 4,
+    "periodsPerWeek": 4,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_002",
+    "name": "Database Systems",
+    "code": "CS302",
+    "dept": "Computer Science",
+    "credits": 3,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_003",
+    "name": "Operating Systems",
+    "code": "CS303",
+    "dept": "Computer Science",
+    "credits": 3,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_004",
+    "name": "OS Lab",
+    "code": "CS303L",
+    "dept": "Computer Science",
+    "credits": 2,
+    "periodsPerWeek": 3,
+    "isLab": true,
+    "labDuration": 3
+  },
+  {
+    "id": "subj_005",
+    "name": "DBMS Lab",
+    "code": "CS302L",
+    "dept": "Computer Science",
+    "credits": 2,
+    "periodsPerWeek": 3,
+    "isLab": true,
+    "labDuration": 3
+  },
+  {
+    "id": "subj_006",
+    "name": "Web Technologies",
+    "code": "CS351",
+    "dept": "Computer Science",
+    "credits": 3,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_007",
+    "name": "Discrete Mathematics",
+    "code": "MA301",
+    "dept": "Mathematics",
+    "credits": 4,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_008",
+    "name": "Linear Algebra",
+    "code": "MA302",
+    "dept": "Mathematics",
+    "credits": 3,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  }
+]

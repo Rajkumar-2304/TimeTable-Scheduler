@@ -1,0 +1,42 @@
+[
+  {
+    "id": "grp_001",
+    "name": "CSE - A (Sem 3)",
+    "dept": "Computer Science",
+    "semester": 3,
+    "strength": 60,
+    "curriculum": []
+  },
+  {
+    "id": "grp_002",
+    "name": "CSE - B (Sem 3)",
+    "dept": "Computer Science",
+    "semester": 3,
+    "strength": 58,
+    "curriculum": []
+  },
+  {
+    "id": "grp_003",
+    "name": "CSE - C (Sem 3)",
+    "dept": "Computer Science",
+    "semester": 3,
+    "strength": 55,
+    "curriculum": []
+  },
+  {
+    "id": "grp_004",
+    "name": "ECE - A (Sem 3)",
+    "dept": "Electronics",
+    "semester": 3,
+    "strength": 60,
+    "curriculum": []
+  },
+  {
+    "id": "grp_005",
+    "name": "Mech - A (Sem 3)",
+    "dept": "Mechanical",
+    "semester": 3,
+    "strength": 55,
+    "curriculum": []
+  }
+]

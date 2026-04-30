@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRT Scheduler — College Timetable Management System</title>
+  <meta name="description" content="Automated college timetable scheduling system using Genetic Algorithm. Manage faculty, subjects, rooms and generate conflict-free timetables.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══════════════════════════════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">🗓</div>
+    <div class="logo-text">
+      CRT Scheduler
+      <span>Timetable Management</span>
+    </div>
+  </div>
+
+  <div class="sidebar-section-label">Overview</div>
+  <div class="nav-item active" data-page="dashboard" onclick="navigate('dashboard')">
+    <span class="nav-icon">🏠</span> Dashboard
+  </div>
+
+  <div class="sidebar-section-label">Setup</div>
+  <div class="nav-item" data-page="faculty" onclick="navigate('faculty')">
+    <span class="nav-icon">👨‍🏫</span> Faculty
+    <span class="nav-badge" id="badge-faculty">0</span>
+  </div>
+  <div class="nav-item" data-page="subjects" onclick="navigate('subjects')">
+    <span class="nav-icon">📚</span> Subjects
+    <span class="nav-badge" id="badge-subjects">0</span>
+  </div>
+  <div class="nav-item" data-page="rooms" onclick="navigate('rooms')">
+    <span class="nav-icon">🚪</span> Rooms
+    <span class="nav-badge" id="badge-rooms">0</span>
+  </div>
+  <div class="nav-item" data-page="groups" onclick="navigate('groups')">
+    <span class="nav-icon">👥</span> Student Groups
+    <span class="nav-badge" id="badge-groups">0</span>
+  </div>
+  <div class="nav-item" data-page="config" onclick="navigate('config')">
+    <span class="nav-icon">⚙️</span> Time Config
+  </div>
+
+  <div class="sidebar-section-label">Scheduling</div>
+  <div class="nav-item" data-page="generate" onclick="navigate('generate')">
+    <span class="nav-icon">⚡</span> Generate
+  </div>
+  <div class="nav-item" data-page="timetable" onclick="navigate('timetable')">
+    <span class="nav-icon">📋</span> Timetable
+  </div>
+  <div class="nav-item" data-page="conflicts" onclick="navigate('conflicts')">
+    <span class="nav-icon">⚠️</span> Conflicts
+    <span class="nav-badge" id="badge-conflicts" style="background:var(--danger)">0</span>
+  </div>
+
+  <div class="sidebar-footer">
+    CRT Scheduler v1.0 &nbsp;·&nbsp; GA Engine
+  </div>
+</aside>
+
+<!-- ══ MAIN ══════════════════════════════════════ -->
+<div class="main-content">
+  <header class="topbar">
+    <div>
+      <div class="topbar-title" id="topbar-title">Dashboard</div>
+      <div class="topbar-subtitle" id="topbar-subtitle">Welcome to your timetable management system</div>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn btn-ghost btn-sm" onclick="clearAllData()" id="btn-clear" style="display:none">🗑 Clear Data</button>
+      <button class="btn btn-primary btn-sm" onclick="navigate('generate')">⚡ Generate Timetable</button>
+    </div>
+  </header>
+
+  <div class="page-content">
+
+    <!-- ══ DASHBOARD ══════════════════════════════ -->
+    <section class="page active" id="page-dashboard">
+      <div class="welcome-banner">
+        <div class="welcome-title">College <span>Timetable Scheduler</span></div>
+        <div class="welcome-subtitle">
+          Automated scheduling powered by Genetic Algorithm — handle faculty constraints, room allocation, and period distribution intelligently.
+        </div>
+        <div class="welcome-actions">
+          <button class="btn btn-primary" onclick="navigate('generate')">⚡ Generate Timetable</button>
+          <button class="btn btn-ghost" onclick="loadSampleData()">📂 Load Sample Data</button>
+        </div>
+      </div>
+
+      <!-- Workflow Steps -->
+      <div class="card mb-6">
+        <div class="card-title">📍 Setup Workflow</div>
+        <div class="card-subtitle">Follow these steps to generate your first timetable</div>
+        <div class="workflow-steps" id="workflow-steps">
+          <div class="workflow-step" id="ws-1">
+            <div class="step-num">1</div>
+            <div class="step-info">
+              <div class="step-label">Add Faculty</div>
+              <div class="step-desc">Teachers & staff</div>
+            </div>
+          </div>
+          <div class="workflow-step" id="ws-2">
+            <div class="step-num">2</div>
+            <div class="step-info">
+              <div class="step-label">Add Subjects</div>
+              <div class="step-desc">Courses & labs</div>
+            </div>
+          </div>
+          <div class="workflow-step" id="ws-3">
+            <div class="step-num">3</div>
+            <div class="step-info">
+              <div class="step-label">Add Rooms</div>
+              <div class="step-desc">Classrooms & labs</div>
+            </div>
+          </div>
+          <div class="workflow-step" id="ws-4">
+            <div class="step-num">4</div>
+            <div class="step-info">
+              <div class="step-label">Student Groups</div>
+              <div class="step-desc">Classes & curriculum</div>
+            </div>
+          </div>
+          <div class="workflow-step" id="ws-5">
+            <div class="step-num">5</div>
+            <div class="step-info">
+              <div class="step-label">Generate</div>
+              <div class="step-desc">Run the algorithm</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card" style="--accent-bar: var(--primary)">
+          <span class="stat-icon">👨‍🏫</span>
+          <div class="stat-value" id="stat-faculty">0</div>
+          <div class="stat-label">Faculty Members</div>
+        </div>
+        <div class="stat-card" style="--accent-bar: var(--accent)">
+          <span class="stat-icon">📚</span>
+          <div class="stat-value" id="stat-subjects">0</div>
+          <div class="stat-label">Subjects</div>
+        </div>
+        <div class="stat-card" style="--accent-bar: var(--warning)">
+          <span class="stat-icon">🚪</span>
+          <div class="stat-value" id="stat-rooms">0</div>
+          <div class="stat-label">Rooms</div>
+        </div>
+        <div class="stat-card" style="--accent-bar: #ec4899">
+          <span class="stat-icon">👥</span>
+          <div class="stat-value" id="stat-groups">0</div>
+          <div class="stat-label">Student Groups</div>
+        </div>
+        <div class="stat-card" style="--accent-bar: var(--success)">
+          <span class="stat-icon">📋</span>
+          <div class="stat-value" id="stat-sessions">0</div>
+          <div class="stat-label">Scheduled Sessions</div>
+        </div>
+        <div class="stat-card" style="--accent-bar: var(--danger)">
+          <span class="stat-icon">⚠️</span>
+          <div class="stat-value" id="stat-conflicts">0</div>
+          <div class="stat-label">Conflicts</div>
+        </div>
+      </div>
+
+      <!-- Quick actions -->
+      <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:14px;">Quick Actions</div>
+      <div class="quick-actions-grid">
+        <div class="quick-action-card" onclick="navigate('faculty')">
+          <div class="qa-icon" style="background:rgba(124,58,237,0.15)">👨‍🏫</div>
+          <div class="qa-label">Manage Faculty</div>
+          <div class="qa-desc">Add or edit faculty members</div>
+        </div>
+        <div class="quick-action-card" onclick="navigate('subjects')">
+          <div class="qa-icon" style="background:rgba(6,214,160,0.15)">📚</div>
+          <div class="qa-label">Manage Subjects</div>
+          <div class="qa-desc">Add courses and labs</div>
+        </div>
+        <div class="quick-action-card" onclick="navigate('rooms')">
+          <div class="qa-icon" style="background:rgba(245,158,11,0.15)">🚪</div>
+          <div class="qa-label">Manage Rooms</div>
+          <div class="qa-desc">Classrooms & lab spaces</div>
+        </div>
+        <div class="quick-action-card" onclick="navigate('groups')">
+          <div class="qa-icon" style="background:rgba(236,72,153,0.15)">👥</div>
+          <div class="qa-label">Student Groups</div>
+          <div class="qa-desc">Classes with curriculum</div>
+        </div>
+        <div class="quick-action-card" onclick="navigate('generate')" style="border-color:rgba(124,58,237,0.4)">
+          <div class="qa-icon" style="background:rgba(124,58,237,0.25)">⚡</div>
+          <div class="qa-label">Generate Now</div>
+          <div class="qa-desc">Run scheduling algorithm</div>
+        </div>
+        <div class="quick-action-card" onclick="navigate('timetable')">
+          <div class="qa-icon" style="background:rgba(16,185,129,0.15)">📋</div>
+          <div class="qa-label">View Timetable</div>
+          <div class="qa-desc">Explore generated schedule</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FACULTY PAGE ════════════════════════════ -->
+    <section class="page" id="page-faculty">
+      <div class="section-header">
+        <div class="section-title">
+          <div class="section-title-icon" style="background:rgba(124,58,237,0.15)">👨‍🏫</div>
+          Faculty Members
+        </div>
+        <div class="flex gap-2">
+          <div class="search-bar">
+            <input type="text" id="faculty-search" placeholder="Search faculty..." oninput="renderFacultyTable()">
+          </div>
+          <button class="btn btn-primary" onclick="openModal('modal-faculty')">+ Add Faculty</button>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Email</th>
+              <th>Max Periods/Day</th>
+              <th>Subjects Assigned</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="faculty-tbody">
+            <tr><td colspan="6"><div class="empty-state"><div class="empty-state-icon">👨‍🏫</div><div class="empty-state-title">No Faculty Added</div><div class="empty-state-desc">Add your first faculty member to get started</div><button class="btn btn-primary" onclick="openModal('modal-faculty')">+ Add Faculty</button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ SUBJECTS PAGE ═══════════════════════════ -->
+    <section class="page" id="page-subjects">
+      <div class="section-header">
+        <div class="section-title">
+          <div class="section-title-icon" style="background:rgba(6,214,160,0.15)">📚</div>
+          Subjects & Courses
+        </div>
+        <div class="flex gap-2">
+          <div class="search-bar">
+            <input type="text" id="subjects-search" placeholder="Search subjects..." oninput="renderSubjectsTable()">
+          </div>
+          <button class="btn btn-primary" onclick="openModal('modal-subject')">+ Add Subject</button>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Code</th>
+              <th>Department</th>
+              <th>Credits</th>
+              <th>Periods/Week</th>
+              <th>Type</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="subjects-tbody">
+            <tr><td colspan="7"><div class="empty-state"><div class="empty-state-icon">📚</div><div class="empty-state-title">No Subjects Added</div><div class="empty-state-desc">Add subjects and courses for scheduling</div><button class="btn btn-primary" onclick="openModal('modal-subject')">+ Add Subject</button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ ROOMS PAGE ══════════════════════════════ -->
+    <section class="page" id="page-rooms">
+      <div class="section-header">
+        <div class="section-title">
+          <div class="section-title-icon" style="background:rgba(245,158,11,0.15)">🚪</div>
+          Rooms & Venues
+        </div>
+        <div class="flex gap-2">
+          <div class="search-bar">
+            <input type="text" id="rooms-search" placeholder="Search rooms..." oninput="renderRoomsTable()">
+          </div>
+          <button class="btn btn-primary" onclick="openModal('modal-room')">+ Add Room</button>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Room Name</th>
+              <th>Capacity</th>
+              <th>Type</th>
+              <th>Floor / Block</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="rooms-tbody">
+            <tr><td colspan="5"><div class="empty-state"><div class="empty-state-icon">🚪</div><div class="empty-state-title">No Rooms Added</div><div class="empty-state-desc">Add classrooms and lab spaces</div><button class="btn btn-primary" onclick="openModal('modal-room')">+ Add Room</button></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ GROUPS PAGE ═════════════════════════════ -->
+    <section class="page" id="page-groups">
+      <div class="section-header">
+        <div class="section-title">
+          <div class="section-title-icon" style="background:rgba(236,72,153,0.15)">👥</div>
+          Student Groups
+        </div>
+        <button class="btn btn-primary" onclick="openModal('modal-group')">+ Add Group</button>
+      </div>
+
+      <div id="groups-container">
+        <div class="empty-state">
+          <div class="empty-state-icon">👥</div>
+          <div class="empty-state-title">No Student Groups</div>
+          <div class="empty-state-desc">Add student groups and assign their curriculum</div>
+          <button class="btn btn-primary" onclick="openModal('modal-group')">+ Add Group</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CONFIG PAGE ═════════════════════════════ -->
+    <section class="page" id="page-config">
+      <div class="section-title mb-4">
+        <div class="section-title-icon" style="background:rgba(99,102,241,0.15)">⚙️</div>
+        Time Slot Configuration
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div class="card">
+          <div class="card-title">📅 Working Days</div>
+          <div class="card-subtitle">Select which days are working days</div>
+          <div style="display:flex;flex-direction:column;gap:10px" id="days-config">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">🕐 Period Settings</div>
+          <div class="card-subtitle">Configure number of periods and timing</div>
+          <div class="form-group mb-4" style="margin-bottom:16px">
+            <label>Periods Per Day</label>
+            <input type="number" id="cfg-periods" class="form-control" min="3" max="10" value="6" onchange="saveConfig()">
+          </div>
+          <div class="form-group mb-4" style="margin-bottom:16px">
+            <label>Lunch Break After Period</label>
+            <input type="number" id="cfg-break" class="form-control" min="1" max="8" value="3" onchange="saveConfig()">
+          </div>
+          <div class="form-group">
+            <label>Institution Name</label>
+            <input type="text" id="cfg-institution" class="form-control" placeholder="e.g. ABC Engineering College" onchange="saveConfig()">
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-4" style="margin-top:20px">
+        <div class="card-title">🕐 Period Time Slots</div>
+        <div class="card-subtitle">Set start and end time for each period</div>
+        <div id="period-times-container" style="display:flex;flex-direction:column;gap:10px">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ GENERATE PAGE ═══════════════════════════ -->
+    <section class="page" id="page-generate">
+      <div class="section-title mb-4">
+        <div class="section-title-icon" style="background:rgba(124,58,237,0.2)">⚡</div>
+        Generate Timetable
+      </div>
+
+      <div class="generator-layout">
+        <!-- Left: Config -->
+        <div class="gen-config">
+          <div class="card">
+            <div class="card-title">🧬 Algorithm</div>
+            <div class="card-subtitle">Select the optimization method</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div class="algo-option selected" id="algo-ga" onclick="selectAlgo('ga')">
+                <div class="algo-radio"></div>
+                <div>
+                  <div class="algo-name">Genetic Algorithm</div>
+                  <div class="algo-desc">Best quality, ~3-10 seconds. Evolves optimal schedules through populations.</div>
+                </div>
+              </div>
+              <div class="algo-option" id="algo-greedy" onclick="selectAlgo('greedy')">
+                <div class="algo-radio"></div>
+                <div>
+                  <div class="algo-name">Greedy + Local Search</div>
+                  <div class="algo-desc">Fastest, ~0.5 seconds. Good for quick previews.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">⚙️ GA Parameters</div>
+            <div class="card-subtitle">Fine-tune the algorithm</div>
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <div class="form-group">
+                <label>Population Size</label>
+                <input type="range" id="ga-pop" min="20" max="150" value="60" oninput="updateGALabels()">
+                <div class="flex justify-between" style="font-family:monospace;font-size:0.75rem;color:var(--text-muted);margin-top:2px">
+                  <span>20</span><span id="ga-pop-val" style="color:var(--accent)">60</span><span>150</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Generations</label>
+                <input type="range" id="ga-gen" min="100" max="1000" value="400" step="50" oninput="updateGALabels()">
+                <div class="flex justify-between" style="font-family:monospace;font-size:0.75rem;color:var(--text-muted);margin-top:2px">
+                  <span>100</span><span id="ga-gen-val" style="color:var(--accent)">400</span><span>1000</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Mutation Rate</label>
+                <input type="range" id="ga-mut" min="5" max="50" value="15" oninput="updateGALabels()">
+                <div class="flex justify-between" style="font-family:monospace;font-size:0.75rem;color:var(--text-muted);margin-top:2px">
+                  <span>5%</span><span id="ga-mut-val" style="color:var(--accent)">15%</span><span>50%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-accent btn-lg full-width" id="btn-generate" onclick="startGeneration()" style="justify-content:center">
+            ⚡ Start Generation
+          </button>
+          <button class="btn btn-ghost full-width hidden" id="btn-stop" onclick="stopGeneration()" style="justify-content:center">
+            ⏹ Stop
+          </button>
+        </div>
+
+        <!-- Right: Progress -->
+        <div class="progress-area">
+          <div class="progress-card">
+            <div class="progress-header">
+              <div class="progress-label">⚡ Generation Progress</div>
+              <div class="progress-pct" id="gen-pct">0%</div>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="gen-bar"></div>
+            </div>
+            <div class="gen-stats-row">
+              <div class="gen-stat">
+                <div class="gen-stat-val" id="gen-generation">—</div>
+                <div class="gen-stat-lbl">Generation</div>
+              </div>
+              <div class="gen-stat">
+                <div class="gen-stat-val" id="gen-fitness">—</div>
+                <div class="gen-stat-lbl">Best Fitness</div>
+              </div>
+              <div class="gen-stat">
+                <div class="gen-stat-val" id="gen-violations">—</div>
+                <div class="gen-stat-lbl">Violations</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">📜 Algorithm Log</div>
+            <div class="log-area" id="log-area">
+              <div style="color:var(--text-muted)">Awaiting generation start...</div>
+            </div>
+          </div>
+
+          <div class="card" id="gen-result-card" style="display:none">
+            <div class="card-title">✅ Generation Complete</div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+              <button class="btn btn-primary" onclick="navigate('timetable')">📋 View Timetable</button>
+              <button class="btn btn-ghost" onclick="navigate('conflicts')">⚠️ Check Conflicts</button>
+              <button class="btn btn-ghost" onclick="printTimetable()">🖨 Print</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TIMETABLE PAGE ══════════════════════════ -->
+    <section class="page" id="page-timetable">
+      <div class="section-header">
+        <div class="section-title">
+          <div class="section-title-icon" style="background:rgba(16,185,129,0.15)">📋</div>
+          Timetable View
+        </div>
+        <div class="flex gap-2 no-print">
+          <button class="btn btn-ghost btn-sm" onclick="exportCSV()">⬇ CSV</button>
+          <button class="btn btn-ghost btn-sm" onclick="printTimetable()">🖨 Print</button>
+        </div>
+      </div>
+
+      <div class="timetable-controls no-print">
+        <div class="view-tabs">
+          <div class="view-tab active" id="tab-group"   onclick="setTTView('group')">By Group</div>
+          <div class="view-tab"        id="tab-faculty" onclick="setTTView('faculty')">By Faculty</div>
+          <div class="view-tab"        id="tab-room"    onclick="setTTView('room')">By Room</div>
+        </div>
+        <div class="form-group" style="flex-direction:row;align-items:center;gap:8px;margin:0">
+          <label style="white-space:nowrap;margin:0;font-size:0.8rem;color:var(--text-muted)">Select:</label>
+          <select id="tt-selector" class="form-select" style="min-width:200px" onchange="renderTimetable()">
+            <option>— Select —</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="timetable-area">
+        <div class="empty-state">
+          <div class="empty-state-icon">📋</div>
+          <div class="empty-state-title">No Timetable Generated</div>
+          <div class="empty-state-desc">Run the scheduling algorithm to generate a timetable</div>
+          <button class="btn btn-primary" onclick="navigate('generate')">⚡ Generate Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CONFLICTS PAGE ═════════════════════════ -->
+    <section class="page" id="page-conflicts">
+      <div class="section-title mb-4">
+        <div class="section-title-icon" style="background:rgba(239,68,68,0.15)">⚠️</div>
+        Conflict Report
+      </div>
+
+      <div id="conflicts-container">
+        <div class="empty-state">
+          <div class="empty-state-icon">✅</div>
+          <div class="empty-state-title">No Conflicts Found</div>
+          <div class="empty-state-desc">Generate a timetable first to check for conflicts</div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-content -->
+</div><!-- /main-content -->
+
+<!-- ══ MODALS ════════════════════════════════════ -->
+
+<!-- Faculty Modal -->
+<div class="modal-overlay" id="modal-faculty">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title"><span id="faculty-modal-title">Add Faculty</span></div>
+      <button class="modal-close" onclick="closeModal('modal-faculty')">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="faculty-edit-id">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="fac-name" class="form-control" placeholder="Dr. John Smith">
+        </div>
+        <div class="form-group">
+          <label>Department *</label>
+          <input type="text" id="fac-dept" class="form-control" placeholder="Computer Science">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="fac-email" class="form-control" placeholder="faculty@college.edu">
+        </div>
+        <div class="form-group">
+          <label>Max Periods / Day</label>
+          <input type="number" id="fac-max" class="form-control" min="1" max="8" value="4">
+        </div>
+        <div class="form-group" style="grid-column:1/-1">
+          <label>Specialization</label>
+          <input type="text" id="fac-spec" class="form-control" placeholder="Data Structures, Algorithms...">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('modal-faculty')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveFaculty()">💾 Save Faculty</button>
+    </div>
+  </div>
+</div>
+
+<!-- Subject Modal -->
+<div class="modal-overlay" id="modal-subject">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">📚 <span id="subject-modal-title">Add Subject</span></div>
+      <button class="modal-close" onclick="closeModal('modal-subject')">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="subject-edit-id">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Subject Name *</label>
+          <input type="text" id="sub-name" class="form-control" placeholder="Data Structures">
+        </div>
+        <div class="form-group">
+          <label>Subject Code *</label>
+          <input type="text" id="sub-code" class="form-control" placeholder="CS301">
+        </div>
+        <div class="form-group">
+          <label>Department *</label>
+          <input type="text" id="sub-dept" class="form-control" placeholder="Computer Science">
+        </div>
+        <div class="form-group">
+          <label>Credits</label>
+          <input type="number" id="sub-credits" class="form-control" min="1" max="6" value="3">
+        </div>
+        <div class="form-group">
+          <label>Periods Per Week</label>
+          <input type="number" id="sub-periods" class="form-control" min="1" max="10" value="3">
+        </div>
+        <div class="form-group">
+          <label>Type</label>
+          <div class="toggle-group" style="margin-top:8px">
+            <label class="toggle">
+              <input type="checkbox" id="sub-islab">
+              <div class="toggle-track"></div>
+            </label>
+            <span style="font-size:0.875rem">Lab / Practical</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('modal-subject')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveSubject()">💾 Save Subject</button>
+    </div>
+  </div>
+</div>
+
+<!-- Room Modal -->
+<div class="modal-overlay" id="modal-room">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">🚪 <span id="room-modal-title">Add Room</span></div>
+      <button class="modal-close" onclick="closeModal('modal-room')">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="room-edit-id">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Room Name / Number *</label>
+          <input type="text" id="room-name" class="form-control" placeholder="Room 101">
+        </div>
+        <div class="form-group">
+          <label>Capacity</label>
+          <input type="number" id="room-capacity" class="form-control" min="10" max="500" value="60">
+        </div>
+        <div class="form-group">
+          <label>Floor / Block</label>
+          <input type="text" id="room-floor" class="form-control" placeholder="Block A, Floor 2">
+        </div>
+        <div class="form-group">
+          <label>Type</label>
+          <div class="toggle-group" style="margin-top:8px">
+            <label class="toggle">
+              <input type="checkbox" id="room-islab">
+              <div class="toggle-track"></div>
+            </label>
+            <span style="font-size:0.875rem">Lab / Special Room</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('modal-room')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveRoom()">💾 Save Room</button>
+    </div>
+  </div>
+</div>
+
+<!-- Group Modal -->
+<div class="modal-overlay" id="modal-group">
+  <div class="modal" style="max-width:700px">
+    <div class="modal-header">
+      <div class="modal-title">👥 <span id="group-modal-title">Add Student Group</span></div>
+      <button class="modal-close" onclick="closeModal('modal-group')">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="group-edit-id">
+      <div class="form-grid" style="margin-bottom:20px">
+        <div class="form-group">
+          <label>Group Name *</label>
+          <input type="text" id="grp-name" class="form-control" placeholder="CSE - A (Sem 3)">
+        </div>
+        <div class="form-group">
+          <label>Department *</label>
+          <input type="text" id="grp-dept" class="form-control" placeholder="Computer Science">
+        </div>
+        <div class="form-group">
+          <label>Semester</label>
+          <input type="number" id="grp-sem" class="form-control" min="1" max="8" value="1">
+        </div>
+        <div class="form-group">
+          <label>Strength</label>
+          <input type="number" id="grp-strength" class="form-control" min="1" max="200" value="60">
+        </div>
+      </div>
+
+      <div style="font-weight:700;font-size:0.9rem;margin-bottom:12px;display:flex;align-items:center;gap:8px">
+        📝 Curriculum Assignment
+        <span class="badge badge-purple" style="font-size:0.7rem">Select subject + faculty + periods</span>
+      </div>
+      <div id="curriculum-builder" style="display:flex;flex-direction:column;gap:8px">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('modal-group')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveGroup()">💾 Save Group</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div id="toast-container"></div>
+
+<script src="scheduler.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

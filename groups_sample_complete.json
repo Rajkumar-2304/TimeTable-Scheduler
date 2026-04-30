@@ -1,0 +1,134 @@
+[
+  {
+    "id": "grp_001",
+    "name": "CSE - A (Sem 3)",
+    "dept": "Computer Science",
+    "semester": 3,
+    "strength": 60,
+    "curriculum": [
+      {"subjectId": "subj_001", "facultyId": "fac_001", "periodsPerWeek": 3},
+      {"subjectId": "subj_002", "facultyId": "fac_002", "periodsPerWeek": 3},
+      {"subjectId": "subj_003", "facultyId": "fac_003", "periodsPerWeek": 3},
+      {"subjectId": "subj_004", "facultyId": "fac_003", "periodsPerWeek": 3},
+      {"subjectId": "subj_005", "facultyId": "fac_006", "periodsPerWeek": 3},
+      {"subjectId": "subj_006", "facultyId": "fac_004", "periodsPerWeek": 3},
+      {"subjectId": "subj_007", "facultyId": "fac_001", "periodsPerWeek": 3},
+      {"subjectId": "subj_008", "facultyId": "fac_009", "periodsPerWeek": 3},
+      {"subjectId": "subj_009", "facultyId": "fac_005", "periodsPerWeek": 3},
+      {"subjectId": "subj_010", "facultyId": "fac_006", "periodsPerWeek": 3}
+    ]
+  },
+  {
+    "id": "grp_002",
+    "name": "CSE - B (Sem 3)",
+    "dept": "Computer Science",
+    "semester": 3,
+    "strength": 58,
+    "curriculum": [
+      {"subjectId": "subj_001", "facultyId": "fac_002", "periodsPerWeek": 3},
+      {"subjectId": "subj_002", "facultyId": "fac_001", "periodsPerWeek": 3},
+      {"subjectId": "subj_003", "facultyId": "fac_004", "periodsPerWeek": 3},
+      {"subjectId": "subj_004", "facultyId": "fac_004", "periodsPerWeek": 3},
+      {"subjectId": "subj_005", "facultyId": "fac_005", "periodsPerWeek": 3},
+      {"subjectId": "subj_006", "facultyId": "fac_007", "periodsPerWeek": 3},
+      {"subjectId": "subj_007", "facultyId": "fac_002", "periodsPerWeek": 3},
+      {"subjectId": "subj_008", "facultyId": "fac_009", "periodsPerWeek": 3},
+      {"subjectId": "subj_009", "facultyId": "fac_006", "periodsPerWeek": 3},
+      {"subjectId": "subj_010", "facultyId": "fac_007", "periodsPerWeek": 3}
+    ]
+  },
+  {
+    "id": "grp_003",
+    "name": "CSE - C (Sem 3)",
+    "dept": "Computer Science",
+    "semester": 3,
+    "strength": 55,
+    "curriculum": [
+      {"subjectId": "subj_001", "facultyId": "fac_003", "periodsPerWeek": 3},
+      {"subjectId": "subj_002", "facultyId": "fac_004", "periodsPerWeek": 3},
+      {"subjectId": "subj_003", "facultyId": "fac_005", "periodsPerWeek": 3},
+      {"subjectId": "subj_004", "facultyId": "fac_005", "periodsPerWeek": 3},
+      {"subjectId": "subj_005", "facultyId": "fac_001", "periodsPerWeek": 3},
+      {"subjectId": "subj_006", "facultyId": "fac_008", "periodsPerWeek": 3},
+      {"subjectId": "subj_007", "facultyId": "fac_003", "periodsPerWeek": 3},
+      {"subjectId": "subj_008", "facultyId": "fac_010", "periodsPerWeek": 3},
+      {"subjectId": "subj_009", "facultyId": "fac_007", "periodsPerWeek": 3},
+      {"subjectId": "subj_010", "facultyId": "fac_008", "periodsPerWeek": 3}
+    ]
+  },
+  {
+    "id": "grp_004",
+    "name": "CSE - D (Sem 3)",
+    "dept": "Computer Science",
+    "semester": 3,
+    "strength": 52,
+    "curriculum": [
+      {"subjectId": "subj_001", "facultyId": "fac_004", "periodsPerWeek": 3},
+      {"subjectId": "subj_002", "facultyId": "fac_005", "periodsPerWeek": 3},
+      {"subjectId": "subj_003", "facultyId": "fac_006", "periodsPerWeek": 3},
+      {"subjectId": "subj_004", "facultyId": "fac_006", "periodsPerWeek": 3},
+      {"subjectId": "subj_005", "facultyId": "fac_002", "periodsPerWeek": 3},
+      {"subjectId": "subj_006", "facultyId": "fac_001", "periodsPerWeek": 3},
+      {"subjectId": "subj_007", "facultyId": "fac_004", "periodsPerWeek": 3},
+      {"subjectId": "subj_008", "facultyId": "fac_010", "periodsPerWeek": 3},
+      {"subjectId": "subj_009", "facultyId": "fac_008", "periodsPerWeek": 3},
+      {"subjectId": "subj_010", "facultyId": "fac_007", "periodsPerWeek": 3}
+    ]
+  },
+  {
+    "id": "grp_005",
+    "name": "ECE - A (Sem 3)",
+    "dept": "Electronics",
+    "semester": 3,
+    "strength": 60,
+    "curriculum": [
+      {"subjectId": "subj_011", "facultyId": "fac_010", "periodsPerWeek": 3},
+      {"subjectId": "subj_012", "facultyId": "fac_011", "periodsPerWeek": 3},
+      {"subjectId": "subj_013", "facultyId": "fac_011", "periodsPerWeek": 3},
+      {"subjectId": "subj_014", "facultyId": "fac_012", "periodsPerWeek": 3},
+      {"subjectId": "subj_015", "facultyId": "fac_012", "periodsPerWeek": 3},
+      {"subjectId": "subj_016", "facultyId": "fac_012", "periodsPerWeek": 3}
+    ]
+  },
+  {
+    "id": "grp_006",
+    "name": "ECE - B (Sem 3)",
+    "dept": "Electronics",
+    "semester": 3,
+    "strength": 58,
+    "curriculum": [
+      {"subjectId": "subj_011", "facultyId": "fac_011", "periodsPerWeek": 3},
+      {"subjectId": "subj_012", "facultyId": "fac_010", "periodsPerWeek": 3},
+      {"subjectId": "subj_013", "facultyId": "fac_010", "periodsPerWeek": 3},
+      {"subjectId": "subj_014", "facultyId": "fac_011", "periodsPerWeek": 3},
+      {"subjectId": "subj_015", "facultyId": "fac_012", "periodsPerWeek": 3},
+      {"subjectId": "subj_016", "facultyId": "fac_011", "periodsPerWeek": 3}
+    ]
+  },
+  {
+    "id": "grp_007",
+    "name": "MECH - A (Sem 3)",
+    "dept": "Mechanical",
+    "semester": 3,
+    "strength": 55,
+    "curriculum": [
+      {"subjectId": "subj_007", "facultyId": "fac_013", "periodsPerWeek": 3},
+      {"subjectId": "subj_008", "facultyId": "fac_013", "periodsPerWeek": 3},
+      {"subjectId": "subj_011", "facultyId": "fac_009", "periodsPerWeek": 3},
+      {"subjectId": "subj_012", "facultyId": "fac_009", "periodsPerWeek": 3}
+    ]
+  },
+  {
+    "id": "grp_008",
+    "name": "MECH - B (Sem 3)",
+    "dept": "Mechanical",
+    "semester": 3,
+    "strength": 52,
+    "curriculum": [
+      {"subjectId": "subj_007", "facultyId": "fac_014", "periodsPerWeek": 3},
+      {"subjectId": "subj_008", "facultyId": "fac_014", "periodsPerWeek": 3},
+      {"subjectId": "subj_011", "facultyId": "fac_009", "periodsPerWeek": 3},
+      {"subjectId": "subj_012", "facultyId": "fac_009", "periodsPerWeek": 3}
+    ]
+  }
+]

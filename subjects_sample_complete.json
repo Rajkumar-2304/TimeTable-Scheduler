@@ -1,0 +1,162 @@
+[
+  {
+    "id": "subj_001",
+    "name": "Data Structures",
+    "code": "CS301",
+    "dept": "Computer Science",
+    "credits": 4,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_002",
+    "name": "Database Systems",
+    "code": "CS302",
+    "dept": "Computer Science",
+    "credits": 3,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_003",
+    "name": "Operating Systems",
+    "code": "CS303",
+    "dept": "Computer Science",
+    "credits": 3,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_004",
+    "name": "Computer Networks",
+    "code": "CS304",
+    "dept": "Computer Science",
+    "credits": 3,
+    "periodsPerWeek": 2,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_005",
+    "name": "Web Technologies",
+    "code": "CS305",
+    "dept": "Computer Science",
+    "credits": 3,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_006",
+    "name": "Software Engineering",
+    "code": "CS306",
+    "dept": "Computer Science",
+    "credits": 3,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_007",
+    "name": "Data Structures Lab",
+    "code": "CS301L",
+    "dept": "Computer Science",
+    "credits": 2,
+    "periodsPerWeek": 3,
+    "isLab": true,
+    "labDuration": 3
+  },
+  {
+    "id": "subj_008",
+    "name": "Database Systems Lab",
+    "code": "CS302L",
+    "dept": "Computer Science",
+    "credits": 2,
+    "periodsPerWeek": 3,
+    "isLab": true,
+    "labDuration": 3
+  },
+  {
+    "id": "subj_009",
+    "name": "Operating Systems Lab",
+    "code": "CS303L",
+    "dept": "Computer Science",
+    "credits": 2,
+    "periodsPerWeek": 3,
+    "isLab": true,
+    "labDuration": 3
+  },
+  {
+    "id": "subj_010",
+    "name": "Web Technologies Lab",
+    "code": "CS305L",
+    "dept": "Computer Science",
+    "credits": 2,
+    "periodsPerWeek": 3,
+    "isLab": true,
+    "labDuration": 3
+  },
+  {
+    "id": "subj_011",
+    "name": "Discrete Mathematics",
+    "code": "MA301",
+    "dept": "Mathematics",
+    "credits": 4,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_012",
+    "name": "Linear Algebra",
+    "code": "MA302",
+    "dept": "Mathematics",
+    "credits": 3,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_013",
+    "name": "Probability & Statistics",
+    "code": "MA303",
+    "dept": "Mathematics",
+    "credits": 3,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_014",
+    "name": "Digital Electronics",
+    "code": "EC301",
+    "dept": "Electronics",
+    "credits": 3,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_015",
+    "name": "Microprocessors",
+    "code": "EC302",
+    "dept": "Electronics",
+    "credits": 3,
+    "periodsPerWeek": 3,
+    "isLab": false,
+    "labDuration": 0
+  },
+  {
+    "id": "subj_016",
+    "name": "Digital Electronics Lab",
+    "code": "EC301L",
+    "dept": "Electronics",
+    "credits": 2,
+    "periodsPerWeek": 3,
+    "isLab": true,
+    "labDuration": 3
+  }
+]
