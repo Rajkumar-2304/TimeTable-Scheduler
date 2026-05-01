@@ -7,10 +7,16 @@ const { authenticateToken } = require('./middleware/auth');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Allow all origins — handle preflight (OPTIONS) explicitly first
-const corsOptions = { origin: true, credentials: true };
-app.options('*', cors(corsOptions));   // ← handles ALL preflight requests
-app.use(cors(corsOptions));
+// ─── Manual CORS (works on all platforms) ─────────────────────
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin) res.setHeader('Access-Control-Allow-Origin', origin);
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
 app.use(express.json());
 
 // ─── Health check (public) ────────────────────────────────────
