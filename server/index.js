@@ -156,6 +156,13 @@ app.get('/api/stats', authenticateToken, async (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ CRT Scheduler API running at http://localhost:${PORT}`);
-});
+
+// Only listen when run directly (local dev / Render)
+// When imported by Vercel serverless, we just export the app
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`✅ CRT Scheduler API running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;

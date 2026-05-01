@@ -1,5 +1,5 @@
-// Vercel proxies /api/* → Render backend (no CORS issues)
-// Local dev: Vite proxy also forwards /api → localhost:5000
+// Both frontend and backend are on the same Vercel domain → /api works everywhere
+// Local dev: Vite proxy forwards /api → localhost:5000
 export const API_URL = import.meta.env.VITE_API_URL || '/api';
 
 async function req(method, path, body) {
