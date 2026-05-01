@@ -7,25 +7,8 @@ const { authenticateToken } = require('./middleware/auth');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Allow requests from Vercel frontend and local dev
-const allowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:3000',
-  /\.vercel\.app$/,        // any *.vercel.app domain
-];
-if (process.env.FRONTEND_URL) allowedOrigins.push(process.env.FRONTEND_URL);
-
-app.use(cors({
-  origin: (origin, cb) => {
-    // Allow server-to-server calls (no origin) or matched origins
-    if (!origin) return cb(null, true);
-    const ok = allowedOrigins.some(p =>
-      typeof p === 'string' ? p === origin : p.test(origin)
-    );
-    cb(ok ? null : new Error('CORS: origin not allowed'), ok);
-  },
-  credentials: true,
-}));
+// Allow all origins (Vercel, local dev, etc.)
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 
 // ─── Health check (public) ────────────────────────────────────
