@@ -50,7 +50,7 @@ router.post('/', async (req, res) => {
   // Helper lookups
   const byId = (arr, id) => arr.find(x => x.id === id);
 
-  const { generateTimetablePDF } = require('../pdf-gen');
+
   
   // ─── Build HTML for PDF Attachment (Timetable Grid) ───────────
   function buildTimetableHTML() {
@@ -230,33 +230,15 @@ router.post('/', async (req, res) => {
 </html>`;
   }
 
-  // ─── Build attachment / body ──────────────────────────────────
+  // ─── Build email ──────────────────────────────────────────────
   const emailSubject = subject || `${inst} — Timetable Release`;
-  
-  // Actually generate the PDF buffer
-  let pdfBuffer;
-  try {
-    const rawHtml = buildTimetableHTML();
-    pdfBuffer = await generateTimetablePDF(rawHtml);
-  } catch (err) {
-    console.error("Puppeteer PDF Error:", err);
-    return res.status(500).json({ error: "Failed to compile the Timetable PDF buffer." });
-  }
-
-  const htmlBody = buildEmailHTML();
+  const htmlBody     = buildEmailHTML();
 
   const mailOptions = {
     from   : `"CRT Scheduler" <${process.env.SMTP_USER || 'noreply@crt.edu'}>`,
     to,
     subject: emailSubject,
     html   : htmlBody,
-    attachments: [
-      {
-        filename: 'Weekly_Timetable.pdf',
-        content: pdfBuffer,
-        contentType: 'application/pdf'
-      }
-    ],
   };
 
   // ─── Send ─────────────────────────────────────────────────────

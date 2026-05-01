@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: crt-scheduler-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: TURSO_URL
+        sync: false          # Set manually in Render dashboard
+      - key: TURSO_AUTH_TOKEN
+        sync: false          # Set manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false          # Set manually in Render dashboard
+      - key: FRONTEND_URL
+        sync: false          # e.g. https://your-project.vercel.app
+      - key: SMTP_USER
+        sync: false          # Optional — for email publishing
+      - key: SMTP_PASS
+        sync: false          # Optional — Gmail App Password

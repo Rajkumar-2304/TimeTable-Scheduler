@@ -1,55 +1,35 @@
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+const { createClient } = require('@libsql/client');
 
-// In Docker, DATA_DIR is set to /app/data (a mounted volume) so data persists.
-// Locally it falls back to the server directory itself.
-const DATA_DIR = process.env.DATA_DIR || __dirname;
-const DB_FILE = path.join(DATA_DIR, 'database.sqlite');
-const db = new sqlite3.Database(DB_FILE);
-
-db.serialize(() => {
-  // Check and migrate existing schema
-  db.all("PRAGMA table_info(users)", (err, columns) => {
-    if (err || !columns || columns.length === 0) {
-      // Table doesn't exist, create new one
-      db.run(`CREATE TABLE users (
-        id TEXT PRIMARY KEY,
-        username TEXT UNIQUE NOT NULL,
-        password TEXT NOT NULL,
-        institutionName TEXT
-      )`, (createErr) => {
-        if (createErr) console.error('Error creating users table:', createErr);
-      });
-    } else {
-      // Table exists, check if migration needed
-      const hasUsername = columns.some(col => col.name === 'username');
-      const hasCollegeName = columns.some(col => col.name === 'collegeName');
-      const hasInstitution = columns.some(col => col.name === 'institutionName');
-      
-      if (hasCollegeName && !hasUsername) {
-        // Migrate collegeName to username
-        db.run(`ALTER TABLE users RENAME COLUMN collegeName TO username`, (migErr) => {
-          if (!migErr && !hasInstitution) {
-            db.run(`ALTER TABLE users ADD COLUMN institutionName TEXT`, () => {
-              console.log('✓ Database migrated successfully');
-            });
-          }
-        });
-      } else if (!hasInstitution) {
-        db.run(`ALTER TABLE users ADD COLUMN institutionName TEXT`, () => {
-          console.log('✓ Database schema updated');
-        });
-      }
-    }
-  });
-  
-  db.run(`CREATE TABLE IF NOT EXISTS app_data (
-    userId TEXT PRIMARY KEY,
-    json TEXT,
-    FOREIGN KEY(userId) REFERENCES users(id)
-  )`);
+const client = createClient({
+  url:       process.env.TURSO_URL,
+  authToken: process.env.TURSO_AUTH_TOKEN,
 });
 
+// ─── Initialize tables on startup ─────────────────────────────
+async function initDB() {
+  await client.execute(`
+    CREATE TABLE IF NOT EXISTS users (
+      id              TEXT PRIMARY KEY,
+      username        TEXT UNIQUE NOT NULL,
+      password        TEXT NOT NULL,
+      institutionName TEXT
+    )
+  `);
+
+  await client.execute(`
+    CREATE TABLE IF NOT EXISTS app_data (
+      userId TEXT PRIMARY KEY,
+      json   TEXT,
+      FOREIGN KEY(userId) REFERENCES users(id)
+    )
+  `);
+
+  console.log('✓ Turso database initialized');
+}
+
+initDB().catch(err => console.error('DB init error:', err));
+
+// ─── Default data shape ────────────────────────────────────────
 const DEFAULT_DATA = {
   faculty: [], subjects: [], rooms: [], groups: [],
   config: {
@@ -63,47 +43,42 @@ const DEFAULT_DATA = {
   timetable: null
 };
 
-// Return a promise since sqlite queries are async
-function readDB(userId) {
-  return new Promise((resolve, reject) => {
-    db.get('SELECT json FROM app_data WHERE userId = ?', [userId], (err, row) => {
-      if (err) return reject(err);
-      if (row && row.json) {
-        try { resolve(JSON.parse(row.json)); }
-        catch(e) { resolve(JSON.parse(JSON.stringify(DEFAULT_DATA))); }
-      } else {
-        resolve(JSON.parse(JSON.stringify(DEFAULT_DATA)));
-      }
-    });
+// ─── Read / Write app data ─────────────────────────────────────
+async function readDB(userId) {
+  const result = await client.execute({
+    sql:  'SELECT json FROM app_data WHERE userId = ?',
+    args: [userId],
+  });
+  const row = result.rows[0];
+  if (row && row.json) {
+    try { return JSON.parse(row.json); }
+    catch (e) { return JSON.parse(JSON.stringify(DEFAULT_DATA)); }
+  }
+  return JSON.parse(JSON.stringify(DEFAULT_DATA));
+}
+
+async function writeDB(userId, data) {
+  const payload = JSON.stringify(data);
+  await client.execute({
+    sql: `INSERT INTO app_data (userId, json) VALUES (?, ?)
+          ON CONFLICT(userId) DO UPDATE SET json = excluded.json`,
+    args: [userId, payload],
   });
 }
 
-function writeDB(userId, data) {
-  return new Promise((resolve, reject) => {
-    const payload = JSON.stringify(data);
-    db.run(`INSERT INTO app_data (userId, json) VALUES (?, ?) 
-            ON CONFLICT(userId) DO UPDATE SET json = excluded.json`,
-      [userId, payload], (err) => {
-        if (err) reject(err);
-        else resolve();
-    });
+// ─── User auth helpers ────────────────────────────────────────
+async function getUserByName(username) {
+  const result = await client.execute({
+    sql:  'SELECT * FROM users WHERE username = ?',
+    args: [username],
   });
+  return result.rows[0] || null;
 }
 
-// User auth functions
-function getUserByName(username) {
-  return new Promise((resolve, reject) => {
-    db.get('SELECT * FROM users WHERE username = ?', [username], (err, row) => {
-      if (err) reject(err); else resolve(row);
-    });
-  });
-}
-
-function createUser(id, username, hash, institutionName) {
-  return new Promise((resolve, reject) => {
-    db.run('INSERT INTO users (id, username, password, institutionName) VALUES (?, ?, ?, ?)', [id, username, hash, institutionName], (err) => {
-      if (err) reject(err); else resolve();
-    });
+async function createUser(id, username, hash, institutionName) {
+  await client.execute({
+    sql:  'INSERT INTO users (id, username, password, institutionName) VALUES (?, ?, ?, ?)',
+    args: [id, username, hash, institutionName],
   });
 }
 
@@ -111,4 +86,4 @@ function uid() {
   return 'id_' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
 }
 
-module.exports = { db, readDB, writeDB, uid, getUserByName, createUser };
+module.exports = { client, readDB, writeDB, uid, getUserByName, createUser };
