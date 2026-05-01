@@ -1,5 +1,5 @@
-// In production (Vercel), VITE_API_URL points to the Render backend.
-// In local dev, Vite's proxy forwards /api → http://localhost:5000.
+// Vercel proxies /api/* → Render backend (no CORS issues)
+// Local dev: Vite proxy also forwards /api → localhost:5000
 export const API_URL = import.meta.env.VITE_API_URL || '/api';
 
 async function req(method, path, body) {
