@@ -7,8 +7,10 @@ const { authenticateToken } = require('./middleware/auth');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Allow all origins (Vercel, local dev, etc.)
-app.use(cors({ origin: true, credentials: true }));
+// Allow all origins — handle preflight (OPTIONS) explicitly first
+const corsOptions = { origin: true, credentials: true };
+app.options('*', cors(corsOptions));   // ← handles ALL preflight requests
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // ─── Health check (public) ────────────────────────────────────
