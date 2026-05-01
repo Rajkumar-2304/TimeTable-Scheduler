@@ -1,7 +1,10 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-const DB_FILE = path.join(__dirname, 'database.sqlite');
+// In Docker, DATA_DIR is set to /app/data (a mounted volume) so data persists.
+// Locally it falls back to the server directory itself.
+const DATA_DIR = process.env.DATA_DIR || __dirname;
+const DB_FILE = path.join(DATA_DIR, 'database.sqlite');
 const db = new sqlite3.Database(DB_FILE);
 
 db.serialize(() => {

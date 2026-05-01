@@ -1,0 +1,29 @@
+# Environment variables — never commit secrets
+.env
+.env.*
+
+# SQLite database (runtime data, not source)
+server/database.sqlite
+*.sqlite
+*.db
+
+# Node dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Build output
+client/dist/
+client/build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
