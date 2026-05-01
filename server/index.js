@@ -28,6 +28,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// ─── Health check (public) ────────────────────────────────────
+app.get('/', (_req, res) => res.json({ status: 'CRT Scheduler API is running ✅' }));
+app.get('/health', (_req, res) => res.json({ status: 'ok' }));
+
 // ─── Routes ───────────────────────────────────────────────────
 app.use('/api/auth',      require('./routes/auth'));
 app.use('/api/faculty',   authenticateToken, require('./routes/faculty'));
