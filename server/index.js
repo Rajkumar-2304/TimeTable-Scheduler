@@ -136,8 +136,13 @@ app.post('/api/sample', authenticateToken, async (req, res) => {
   };
   data.timetable = null;
 
-  await writeDB(req.userId || 'default', data);
-  res.json({ success: true, message: 'Sample data loaded' });
+  try {
+    await writeDB(req.userId || 'default', data);
+    res.json({ success: true, message: 'Sample data loaded' });
+  } catch (err) {
+    console.error('Load sample data error:', err.message);
+    res.status(500).json({ error: 'Could not save sample data. Please log in first.' });
+  }
 });
 
 
