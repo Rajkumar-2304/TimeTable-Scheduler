@@ -1,14 +1,8 @@
 {
-  "name": "crt-scheduler",
+  "name": "timetable-scheduler-root",
   "version": "1.0.0",
-  "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start":"node app.js",
-    "server": "cd server && npm run dev",
-    "client": "cd client && npm run dev",
-    "install:all": "npm install && cd server && npm install && cd ../client && npm install"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
+  "private": true,
+  "dependencies": {
+    "serverless-http": "^3.2.0"
   }
 }
